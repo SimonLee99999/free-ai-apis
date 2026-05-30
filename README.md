@@ -1,10 +1,8 @@
-# free-ai-apis
+# Awesome Free AI APIs [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-A list of AI APIs that have a real free tier. No paywalls, no "contact sales". Rate limits are listed so you know what you're working with before you start building.
+> AI APIs with a real free tier. Rate limits listed so you know what you're working with before you start building.
 
 PRs welcome — limits change often, keeping this accurate is the whole point.
-
----
 
 ## Contents
 
@@ -14,119 +12,80 @@ PRs welcome — limits change often, keeping this accurate is the whole point.
 - [Embeddings](#embeddings)
 - [Vector Databases](#vector-databases)
 - [Multi-modal](#multi-modal)
-- [Local / Self-hosted](#local--self-hosted)
-- [Free Credits (with expiry)](#free-credits-with-expiry)
+- [Local and Self-hosted](#local-and-self-hosted)
+- [Expiring Credits](#expiring-credits)
 - [Examples](#examples)
-
----
 
 ## LLMs
 
-Providers with a permanent free tier (no expiry, no credit card unless noted).
+Permanent free tiers — no expiry, no credit card unless noted.
 
-| Provider | Models | Free limit | Context | CC required |
-|----------|--------|-----------|---------|-------------|
-| [Google AI Studio](https://aistudio.google.com) | Gemini 2.0 Flash, 2.5 Pro | 1,500 req/day, 1M TPM | 1M tokens | No |
-| [Groq](https://console.groq.com) | Llama 3.3 70B, Mixtral 8x7B | Rate-limited | 32k tokens | No |
-| [Mistral](https://console.mistral.ai) | Mistral Large, Codestral, Pixtral | Rate-limited | 128k tokens | No |
-| [Cerebras](https://cloud.cerebras.ai) | Llama 3.3 70B | Rate-limited | 128k tokens | No |
-| [Hugging Face](https://huggingface.co/inference-api) | Thousands of open models | Rate-limited, varies by model | Varies | No |
-| [OpenRouter](https://openrouter.ai) | 100+ models, many with free tier | Per-model limits | Varies | No |
-
-Notes:
-- Groq is genuinely fast — ~300 tokens/sec. Good for prototyping when latency matters.
-- Mistral's free plan includes all their models including Codestral. Useful if you need a code-focused model.
-- OpenRouter lets you route to whichever free model is least congested. Worth knowing about.
-
----
+- [Google AI Studio](https://aistudio.google.com) - Gemini 2.0 Flash and 2.5 Pro. 1,500 requests/day, 1M TPM, 1M token context. No CC required.
+- [Groq](https://console.groq.com) - Llama 3.3 70B and Mixtral 8x7B. Rate-limited but fast (~300 tokens/sec). OpenAI-compatible endpoint. No CC required.
+- [Mistral](https://console.mistral.ai) - Large, Codestral, and Pixtral models all included on the free plan, rate-limited. No CC required.
+- [Cerebras](https://cloud.cerebras.ai) - Llama 3.3 70B. Very fast inference, 128k context. No CC required.
+- [Hugging Face Inference API](https://huggingface.co/inference-api) - Thousands of open-source models. Rate limits vary by model. No CC required.
+- [OpenRouter](https://openrouter.ai) - Routes to 100+ models, many with their own free tiers. No CC required.
 
 ## Image Generation
 
-| Provider | Models | Free limit | CC required |
-|----------|--------|-----------|-------------|
-| [Ideogram](https://ideogram.ai) | Ideogram 2.0 | 10 images/day | No |
-| [Stability AI](https://stability.ai) | Stable Diffusion 3 | 25 credits/month | No |
-| [Hugging Face](https://huggingface.co/inference-api) | FLUX, SDXL, many others | Rate-limited | No |
-| [Fal.ai](https://fal.ai) | FLUX, AnimateDiff | $0.10 free credit | No |
-
----
+- [Ideogram](https://ideogram.ai) - Version 2.0. 10 images/day. Good at rendering text inside images. No CC required.
+- [Stability AI](https://stability.ai) - Stable Diffusion 3. 25 credits/month. No CC required.
+- [Hugging Face Image Models](https://huggingface.co/models?pipeline_tag=text-to-image) - FLUX, SDXL, and others. Rate-limited. No CC required.
+- [Fal.ai](https://fal.ai) - FLUX and AnimateDiff. $0.10 free credit on signup. No CC required.
 
 ## Speech and Audio
 
-| Provider | Capability | Free limit | CC required |
-|----------|-----------|-----------|-------------|
-| [ElevenLabs](https://elevenlabs.io) | TTS, voice cloning | 10k chars/month | No |
-| [Deepgram](https://deepgram.com) | Speech-to-text | $200 credit on signup | No |
-| [AssemblyAI](https://assemblyai.com) | STT + speaker detection, summaries | 100 hours free | No |
-| [Whisper](https://github.com/openai/whisper) | STT | Unlimited (self-hosted) | No |
-| [Kokoro TTS](https://github.com/hexgrad/kokoro) | TTS | Unlimited (self-hosted) | No |
-
----
+- [ElevenLabs](https://elevenlabs.io) - Text-to-speech and voice cloning. 10,000 characters/month free. No CC required.
+- [Deepgram](https://deepgram.com) - Speech-to-text. $200 credit on signup. No CC required.
+- [AssemblyAI](https://assemblyai.com) - Speech-to-text with speaker detection and auto-summaries. 100 hours free. No CC required.
+- [Whisper](https://github.com/openai/whisper) - OpenAI's open-weights speech-to-text model. Run locally for free. No CC required.
+- [Kokoro TTS](https://github.com/hexgrad/kokoro) - Open-weights text-to-speech. Self-hosted, no limits. No CC required.
 
 ## Embeddings
 
-| Provider | Model | Free limit | Dimensions | CC required |
-|----------|-------|-----------|-----------|-------------|
-| [Google](https://aistudio.google.com) | text-embedding-004 | 1,500 req/day | 768 | No |
-| [Cohere](https://cohere.com) | embed-english-v3 | 1M tokens/month | 1024 | No |
-| [Jina AI](https://jina.ai) | jina-embeddings-v3 | 1M tokens/month | 1024 | No |
-| [Mistral](https://console.mistral.ai) | mistral-embed | Included in free plan | 1024 | No |
-| [Hugging Face](https://huggingface.co/inference-api) | BGE, E5, Nomic Embed | Rate-limited | 768–1536 | No |
-
----
+- [Google Embeddings API](https://ai.google.dev/gemini-api/docs/embeddings) - Text embedding model (text-embedding-004). 1,500 requests/day, 768 dimensions. No CC required.
+- [Cohere Embed](https://cohere.com/embeddings) - English and multilingual embedding models. 1M tokens/month, 1024 dimensions. No CC required.
+- [Jina AI](https://jina.ai) - Multilingual embeddings (jina-embeddings-v3). 1M tokens/month, 1024 dimensions. No CC required.
+- [Mistral Embeddings](https://docs.mistral.ai/capabilities/embeddings/) - Included in the free plan. 1024 dimensions. No CC required.
+- [Hugging Face Embedding Models](https://huggingface.co/models?pipeline_tag=feature-extraction) - BGE, E5, Nomic Embed, and others. Rate-limited. No CC required.
 
 ## Vector Databases
 
-| Service | Free tier | Notes |
-|---------|-----------|-------|
-| [Qdrant Cloud](https://cloud.qdrant.io) | 1GB storage | Can also self-host for free |
-| [Pinecone](https://pinecone.io) | 2GB, 1 index | Easiest to set up |
-| [Chroma](https://trychroma.com) | Unlimited | Self-hosted only |
-| [Weaviate Cloud](https://weaviate.io) | 14-day trial | |
-
----
+- [Qdrant Cloud](https://cloud.qdrant.io) - 1GB free storage. Can also self-host without limits.
+- [Pinecone](https://pinecone.io) - 2GB storage, one index. Easiest to get started with.
+- [Chroma](https://trychroma.com) - Fully open-source, self-hosted only. No limits.
+- [Weaviate Cloud](https://weaviate.io) - 14-day free trial.
 
 ## Multi-modal
 
-| Provider | Input types | Free limit | CC required |
-|----------|------------|-----------|-------------|
-| [Google Gemini 2.0 Flash](https://aistudio.google.com) | Text, image, audio, video | 1,500 req/day | No |
-| [Mistral Pixtral](https://console.mistral.ai) | Text, image | Included in free plan | No |
+- [Gemini Vision API](https://ai.google.dev/gemini-api/docs/vision) - Text, image, audio, and video input. 1,500 requests/day. No CC required.
+- [Mistral Vision](https://docs.mistral.ai/capabilities/vision/) - Text and image input via Pixtral. Included in the free plan. No CC required.
 
----
+## Local and Self-hosted
 
-## Local / Self-hosted
+No API key, no rate limits, no cost. Everything runs on your own machine.
 
-No API key, no rate limits, no cost. Runs on your machine.
+- [Ollama](https://ollama.com) - Run Llama, Mistral, Gemma, and Phi locally. Simplest setup.
+- [LM Studio](https://lmstudio.ai) - Desktop app for running any GGUF model with a GUI.
+- [vLLM](https://github.com/vllm-project/vllm) - High-throughput inference server for production use.
+- [GPT4All](https://gpt4all.io) - Desktop app, focused on privacy.
 
-| Tool | Description |
-|------|-------------|
-| [Ollama](https://ollama.com) | Run Llama, Mistral, Gemma, Phi locally. Easiest setup. |
-| [LM Studio](https://lmstudio.ai) | Desktop app for running any GGUF model |
-| [vLLM](https://github.com/vllm-project/vllm) | Production-grade inference server |
-| [GPT4All](https://gpt4all.io) | Desktop app, privacy-focused |
+## Expiring Credits
 
----
+These expire — grab them before starting a new project.
 
-## Free Credits (with expiry)
-
-These expire, so use them first before burning through your actual budget.
-
-| Provider | Amount | Expiry | CC required |
-|----------|--------|--------|-------------|
-| [Together AI](https://together.ai) | up to $100 | 90 days | No |
-| [xAI](https://x.ai/api) | $25 | 90 days | No |
-| [Cohere](https://cohere.com) | $75 | None | No |
-| [Fireworks AI](https://fireworks.ai) | $1 | 30 days | No |
-| [DeepSeek](https://platform.deepseek.com) | 5M tokens | 30 days | No |
-| [OpenAI](https://platform.openai.com) | $5 | 3 months | Yes |
-| [Anthropic](https://console.anthropic.com) | $5 | None | Yes |
-
----
+- [Together AI](https://together.ai) - Up to $100 credit, valid 90 days. No CC required.
+- [xAI](https://x.ai/api) - $25 credit, valid 90 days. No CC required.
+- [Cohere](https://cohere.com/pricing) - $75 credit, no expiry. No CC required.
+- [DeepSeek](https://platform.deepseek.com) - 5M tokens on signup, valid 30 days. No CC required.
+- [Fireworks AI](https://fireworks.ai) - $1 credit, valid 30 days. No CC required.
+- [Anthropic](https://console.anthropic.com) - $5 credit, no expiry. CC required.
+- [OpenAI](https://platform.openai.com) - $5 credit, valid 3 months. CC required.
 
 ## Examples
 
-### Gemini (no CC, 1500 req/day)
+### Gemini — 1,500 requests/day, no CC
 
 ```python
 import google.generativeai as genai
@@ -136,7 +95,7 @@ model = genai.GenerativeModel("gemini-2.0-flash")
 print(model.generate_content("hello").text)
 ```
 
-### Groq (no CC, OpenAI-compatible)
+### Groq — OpenAI-compatible, no CC
 
 ```python
 from openai import OpenAI
@@ -149,7 +108,7 @@ resp = client.chat.completions.create(
 print(resp.choices[0].message.content)
 ```
 
-### Ollama (local, no key needed)
+### Ollama — local, no key needed
 
 ```bash
 ollama run llama3.2
@@ -166,7 +125,7 @@ resp = client.chat.completions.create(
 print(resp.choices[0].message.content)
 ```
 
-### Switch providers without rewriting your code (LiteLLM)
+### Switch providers without rewriting your code
 
 ```python
 from litellm import completion
@@ -177,9 +136,3 @@ completion(model="gemini/gemini-2.0-flash", messages=messages)
 completion(model="groq/llama-3.3-70b-versatile", messages=messages)
 completion(model="ollama/llama3.2", messages=messages, api_base="http://localhost:11434")
 ```
-
----
-
-## Contributing
-
-If a limit is wrong or a provider is missing, open a PR. Include a link to the pricing page so the change is easy to verify.
