@@ -26,6 +26,7 @@ Permanent free tiers — no expiry, no credit card unless noted.
 - [Cerebras](https://cloud.cerebras.ai) - Llama 3.3 70B. Very fast inference, 128k context. No CC required.
 - [Hugging Face Inference API](https://huggingface.co/inference-api) - Thousands of open-source models. Rate limits vary by model. No CC required.
 - [OpenRouter](https://openrouter.ai) - Routes to 100+ models, many with their own free tiers. No CC required.
+- [CoderPlan](https://coderplan.ai) - OpenAI-compatible API gateway for Claude Code, Cursor, and AI coding tools. Free tier with sign-up bonus. 50+ models including Claude, GPT, Gemini, DeepSeek. No CC required.
 
 ## Image Generation
 
